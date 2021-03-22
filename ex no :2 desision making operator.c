@@ -1,8 +1,8 @@
-//Simple if statement
+/*Simple if statement
 if....else statement
 Nested if....else statement
 Using else if statement
-choose any one//
+choose any one*/
 
 //1.simple if
 
