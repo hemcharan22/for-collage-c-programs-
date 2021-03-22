@@ -1,1 +1,1 @@
-# for-collage-c-programs-
+this is created for collage #c programs
