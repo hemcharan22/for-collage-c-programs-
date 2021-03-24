@@ -1,95 +1,34 @@
-#include<stdio.h>    
-#include<stdlib.h>  
-int main(){  
-int a[10],n,i;    
-system ("cls");  
-printf("Enter the number to convert: ");    
-scanf("%d",&n);    
-for(i=0;n>0;i++)    
-{    
-a[i]=n%2;    
-n=n/2;    
-}    
-printf("\nBinary of Given Number is=");    
-for(i=i-1;i>=0;i--)    
-{    
-printf("%d",a[i]);    
-}    
-return 0;  
-}  
-int convertDecimalToOctal(int decimalNumber)
+#include<stdio.h>
+void convert(int, int);
+
+int main()
 {
-    int octalNumber = 0, i = 1;
+        int num;
+        printf("Enter a positive decimal number : ");
+        scanf("%d", &num);
+        printf("\nBinary number :: ");
+        convert(num, 2);
+        printf("\n");
+        printf("\nOctal number :: ");
+        convert(num, 8);
+        printf("\n");
+        printf("\nHexadecimal number :: ");
+        convert(num, 16);
+        printf("\n");
 
-    while (decimalNumber != 0)
-    {
-        octalNumber += (decimalNumber % 8) * i;
-        decimalNumber /= 8;
-        i *= 10;
-    }
+        return 0;
+}/*End of main()*/
 
-    return octalNumber;
-}
-
-
-
-
-
-
-
-
-
-
-#include <stdio.h>
-#include <conio.h>
-void swap(char *s1, char *s2)
+void convert (int num, int base)
 {
-char temp;
-temp = *s1;
-*s1 = *s2;
-*s2 = temp;
-}
-void reverse(char *str, int length)
-{
-int start = 0;
-int end = length -1;
-while (start < end)
-{
-swap(&str[start], &str[end]);
-start++;
-end--;
-}
-}char* convert(int num, char str[100], int base)
-{
-int i = 0;
-if (num == 0)
-{
-str[i++] = '0';
-str[i] = '\0';
-return str;
-}
-while (num != 0)
-{
-int rem = num % base;
-str[i++] = (rem > 9)? (rem-10) + 'a' : rem + '0';
-num = num/base;
-}
-str[i] = '\0'; // Append string terminator
-// Reverse the string
-reverse(str, i);
-return str;
-}
-void main()
-{
-char str[100];
-int n;
-clrscr();
-printf("Enter the given decimal number : ");
-scanf("%d",&n);
-printf("\nThe Binary value : %s\n",convert(n,str,2));
-printf("\nThe Octal value : %s\n",convert(n,str,8));
-printf("\nThe Hexa value : %s\n",convert(n,str,16));
-getch();
-}
+        int rem = num%base;
 
+        if(num==0)
+                return;
+        convert(num/base, base);
 
+        if(rem < 10)
+                printf("%d", rem);
+        else
+                printf("%c", rem-10+'A' );
+}/*End of convert()*/
