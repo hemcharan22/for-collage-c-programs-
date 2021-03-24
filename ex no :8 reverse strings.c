@@ -5,7 +5,7 @@ int main()
    char s[100];
 
    printf("Enter a string to reverse\n");
-   gets(s);
+   gets(s,20,stdin);
 
    strrev(s);
 
